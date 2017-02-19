@@ -20,7 +20,7 @@
         "laravel/tinker": "~1.0"
     },
     "require-dev": {
-        "create-sites/imvk": "^0.1.0",
+        "create-sites/imvk": "^0.2.0",
         "filp/whoops": "^2.1",
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",

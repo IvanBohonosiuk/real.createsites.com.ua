@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b047e75b6038c5892aa01d1f7046288f",
-    "content-hash": "06dcb424c37cce8b85b071ea2a3520c1",
+    "hash": "17b1d68cd8a3ce47e7f22e96e34b12b0",
+    "content-hash": "0b0cc74c8df7f16b1f46f81f58678e3f",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -3893,16 +3893,16 @@
     "packages-dev": [
         {
             "name": "create-sites/imvk",
-            "version": "0.1.1",
+            "version": "0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Create-Sites/IMVK.git",
-                "reference": "5924a4cfd30a76ff9fd57e331c0d5f8f8b08bc67"
+                "reference": "a1c7fc6fd440c7684eaab13418e99c053557d12a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Create-Sites/IMVK/zipball/5924a4cfd30a76ff9fd57e331c0d5f8f8b08bc67",
-                "reference": "5924a4cfd30a76ff9fd57e331c0d5f8f8b08bc67",
+                "url": "https://api.github.com/repos/Create-Sites/IMVK/zipball/a1c7fc6fd440c7684eaab13418e99c053557d12a",
+                "reference": "a1c7fc6fd440c7684eaab13418e99c053557d12a",
                 "shasum": ""
             },
             "require": {
@@ -3926,7 +3926,7 @@
                 }
             ],
             "description": "Real-time VK Messages for laravel 5 package",
-            "time": "2017-02-19 00:40:04"
+            "time": "2017-02-19 12:50:59"
         },
         {
             "name": "doctrine/instantiator",
@@ -3984,16 +3984,16 @@
         },
         {
             "name": "filp/whoops",
-            "version": "2.1.5",
+            "version": "2.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "2abce9d956589122c6443d6265f01cf7e9388e3c"
+                "reference": "92bdc6800ac6e233c9e161a1768e082389a73530"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/2abce9d956589122c6443d6265f01cf7e9388e3c",
-                "reference": "2abce9d956589122c6443d6265f01cf7e9388e3c",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/92bdc6800ac6e233c9e161a1768e082389a73530",
+                "reference": "92bdc6800ac6e233c9e161a1768e082389a73530",
                 "shasum": ""
             },
             "require": {
@@ -4040,7 +4040,7 @@
                 "whoops",
                 "zf2"
             ],
-            "time": "2016-12-26 16:13:31"
+            "time": "2017-02-18 14:22:27"
         },
         {
             "name": "fzaninotto/faker",
@@ -4697,16 +4697,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "5.7.13",
+            "version": "5.7.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "60ebeed87a35ea46fd7f7d8029df2d6f013ebb34"
+                "reference": "4906b8faf23e42612182fd212eb6f4c0f2954b57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/60ebeed87a35ea46fd7f7d8029df2d6f013ebb34",
-                "reference": "60ebeed87a35ea46fd7f7d8029df2d6f013ebb34",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/4906b8faf23e42612182fd212eb6f4c0f2954b57",
+                "reference": "4906b8faf23e42612182fd212eb6f4c0f2954b57",
                 "shasum": ""
             },
             "require": {
@@ -4730,7 +4730,7 @@
                 "sebastian/global-state": "^1.1",
                 "sebastian/object-enumerator": "~2.0",
                 "sebastian/resource-operations": "~1.0",
-                "sebastian/version": "~1.0|~2.0",
+                "sebastian/version": "~1.0.3|~2.0",
                 "symfony/yaml": "~2.1|~3.0"
             },
             "conflict": {
@@ -4775,7 +4775,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-02-10 09:05:10"
+            "time": "2017-02-19 07:22:16"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
