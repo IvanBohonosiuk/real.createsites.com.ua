@@ -1,9 +1,261 @@
+@charset "UTF-8";
 
-// Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+// Mixins
+// @import "../../../node_modules/materialize-css/sass/components/prefixer";
+@import "node_modules/materialize-css/sass/components/mixins";
+@import "node_modules/materialize-css/sass/components/color";
 
-// Variables
+// Variables;
+@import "node_modules/materialize-css/sass/components/variables";
+
+// Reset
+@import "node_modules/materialize-css/sass/components/normalize";
+
+// components
+@import "node_modules/materialize-css/sass/components/global";
+@import "node_modules/materialize-css/sass/components/icons-material-design";
+@import "node_modules/materialize-css/sass/components/grid";
+@import "node_modules/materialize-css/sass/components/navbar";
+@import "node_modules/materialize-css/sass/components/roboto";
+@import "node_modules/materialize-css/sass/components/typography";
+@import "node_modules/materialize-css/sass/components/cards";
+@import "node_modules/materialize-css/sass/components/toast";
+@import "node_modules/materialize-css/sass/components/tabs";
+@import "node_modules/materialize-css/sass/components/tooltip";
+@import "node_modules/materialize-css/sass/components/buttons";
+@import "node_modules/materialize-css/sass/components/dropdown";
+@import "node_modules/materialize-css/sass/components/waves";
+@import "node_modules/materialize-css/sass/components/modal";
+@import "node_modules/materialize-css/sass/components/collapsible";
+@import "node_modules/materialize-css/sass/components/chips";
+@import "node_modules/materialize-css/sass/components/materialbox";
+@import "node_modules/materialize-css/sass/components/forms/forms";
+@import "node_modules/materialize-css/sass/components/table_of_contents";
+@import "node_modules/materialize-css/sass/components/sideNav";
+@import "node_modules/materialize-css/sass/components/preloader";
+@import "node_modules/materialize-css/sass/components/slider";
+@import "node_modules/materialize-css/sass/components/carousel";
+@import "node_modules/materialize-css/sass/components/date_picker/default";
+@import "node_modules/materialize-css/sass/components/date_picker/default.date";
+@import "node_modules/materialize-css/sass/components/date_picker/default.time";
+
 @import "variables";
 
-// Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+body {
+  font-family: 'Roboto', 'Times New Roman', Arial, sans-serif;
+}
+
+nav {
+  margin-bottom: 50px;
+
+  .brand-logo.center {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+}
+
+h2 {
+  font-size: 2.5em;
+}
+
+h3 {
+  font-size: 2em;
+}
+
+.badge {
+  &.notify {
+    min-width: 22px;
+    position: absolute;
+    top: 15px;
+    margin-left: 10px;
+  }
+}
+
+.bids {
+  border: 1px solid #999;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  border-radius: 10px;
+
+  .bid {
+    border-bottom: 1px solid #999;
+    padding: 20px;
+
+    .description {
+
+    }
+
+    .price {
+      background-color: $primary-color;
+      color: #fff;
+      padding: 3px 10px;
+      margin: 0 5px;
+      border-radius: 5px;
+      font-size: 13px;
+    }
+
+    .termin {
+      background-color: $brand-primary;
+      color: #fff;
+      padding: 3px 10px;
+      margin: 0 5px;
+      border-radius: 5px;
+      font-size: 13px;
+    }
+  }
+
+  .bid:last-child {
+    border: none;
+  }
+}
+
+.avatar {
+  width: 100px;
+  border-radius: 20px;
+  float: left;
+  margin: 5px 10px 5px 0;
+}
+
+.private_bid {
+  text-align: center;
+}
+
+.bid_avatar {
+  width: 50px;
+}
+
+.freelancer_avartar {
+  width: 100%;
+  margin: 0;
+}
+
+.freelancer a h3,
+.customers a h3 {
+  margin: 0 10px;
+  text-align: center;
+}
+
+.add_work {
+  margin-top: -45px;
+}
+
+.form-bid {
+  padding: 20px;
+  border-bottom: 1px solid #999;
+}
+
+.project .price {
+  background-color: $primary-color;
+  color: #fff;
+  padding: 5px 15px;
+  margin: -60px 5px 0;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button.ispolnitel {
+  margin-top: -40px;
+}
+
+button.canceled {
+  margin: -40px 100px 0 0;
+}
+
+button.completed,
+a.completed,
+div.completed {
+  margin: -40px 0 0 5px;
+}
+
+div.completed a {
+  margin-left: 10px;
+}
+
+.prj.top {
+  background: #FFC545;
+}
+
+.prj {
+  border: 1px solid $secondary-color;
+  padding: 10px 25px;
+  background: #fff;
+  clear: both;
+
+  p {
+    margin: 0;
+  }
+
+  & > .price {
+    font-size: 25px;
+    color: $secondary-color;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  & > .title {
+    font-size: 25px;
+  }
+
+  a {
+    color: $link-color;
+  }
+
+  .meta {
+    clear: both;
+    height: 25px;
+    color: $secondary-color;
+    min-height: 90px;
+  }
+
+  .user {
+    clear: both;
+  }
+
+  .user .project_avatar {
+    width: 50px;
+  }
+
+  .user .name {
+    top: 5px;
+    position: relative;
+  }
+
+  .user .rating {
+    background: #f3b421;
+    padding: 5px 10px;
+    position: relative;
+    display: inline-block;
+    margin: 5px 0;
+    border-radius: 7PX;
+  }
+
+}
+
+.prj_create_proect {
+  margin-top: -60px;
+
+  span {
+    position: relative;
+    top: -5px;
+  }
+}
+
+.cats {
+  list-style: none;
+  padding: 0;
+
+  li {
+    img {
+      margin-right: 10px;
+      height: 30px;
+    }
+  }
+}
+
+@media screen and (max-width: 993px) {
+  nav .brand-logo.center {
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+}

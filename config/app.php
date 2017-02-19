@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Laravel',
+    'name' => 'Laravel NewFL',
 
     /*
     |--------------------------------------------------------------------------
@@ -78,6 +78,8 @@ return [
     */
 
     'locale' => 'en',
+
+    'locales' => ['en', 'ro', 'fr', 'it', 'es', 'de', 'ua', 'ru'],
 
     /*
     |--------------------------------------------------------------------------
@@ -178,6 +180,26 @@ return [
         Backpack\BackupManager\BackupManagerServiceProvider::class,
         Backpack\LogManager\LogManagerServiceProvider::class,
         Backpack\PermissionManager\PermissionManagerServiceProvider::class,
+
+        /*
+         * Exeption
+         */
+        GrahamCampbell\Exceptions\ExceptionsServiceProvider::class,
+
+        /*
+         * Debugbar
+         */
+        Barryvdh\Debugbar\ServiceProvider::class,
+
+        /*
+         * IDE Helper
+         */
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+
+        /*
+         * IMVK
+         */
+        CreateSites\IMVK\IMVKServiceProvider::class,
 
         /*
          * Application Service Providers...

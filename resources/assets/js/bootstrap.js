@@ -19,6 +19,12 @@ require('bootstrap-sass');
 
 window.Vue = require('vue');
 
+var VueResource = require('vue-resource');
+var VueAsyncData = require('vue-async-data');
+
+Vue.use(VueResource);
+Vue.use(VueAsyncData);
+
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
