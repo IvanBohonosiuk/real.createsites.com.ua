@@ -182,7 +182,7 @@ return [
         Backpack\PermissionManager\PermissionManagerServiceProvider::class,
 
         /*
-         * Exeption
+         * Exception
          */
         GrahamCampbell\Exceptions\ExceptionsServiceProvider::class,
 
@@ -200,6 +200,11 @@ return [
          * IMVK
          */
         CreateSites\IMVK\IMVKServiceProvider::class,
+
+        /*
+         * TinyMCE editor
+         */
+        Ktquez\Tinymce\TinymceServiceProvider::class,
 
         /*
          * Application Service Providers...

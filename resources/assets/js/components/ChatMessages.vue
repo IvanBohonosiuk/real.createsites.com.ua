@@ -87,7 +87,7 @@
             sendMessage (event) {
                 event.preventDefault()
 
-                this.$http.post('/api/im', {text: this.message_text, for_user_id: this.for_user.id, for_user: this.for_user}).then(response => {
+                axios.post('/api/im', {text: this.message_text, for_user_id: this.for_user.id, for_user: this.for_user}).then(response => {
                     if(response.data) {
                         this.getMessages(this.for_user.id)
                         this.message_text = ''

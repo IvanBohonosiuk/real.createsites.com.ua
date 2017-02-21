@@ -9,7 +9,8 @@ window._ = require('lodash');
 
 window.$ = window.jQuery = require('jquery');
 
-require('bootstrap-sass');
+// require('bootstrap-sass');
+var materialize = require('./materialize.min');
 
 /**
  * Vue is a modern JavaScript library for building interactive web interfaces
@@ -37,6 +38,8 @@ window.axios.defaults.headers.common = {
     'X-CSRF-TOKEN': window.Laravel.csrfToken,
     'X-Requested-With': 'XMLHttpRequest'
 };
+
+import Pusher from 'pusher-js';
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

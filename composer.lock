@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "17b1d68cd8a3ce47e7f22e96e34b12b0",
-    "content-hash": "0b0cc74c8df7f16b1f46f81f58678e3f",
+    "hash": "19c0b4299066823bd70d5160c4451aa7",
+    "content-hash": "4a1bbfd58053edcabd5505ef3159744a",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -1583,6 +1583,49 @@
                 "translation"
             ],
             "time": "2017-01-02 09:21:15"
+        },
+        {
+            "name": "ktquez/laravel-tinymce",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ktquez/laravel-tinymce.git",
+                "reference": "dbe1d70d3e4d6f22f02b84436ef51f8bdc9d7092"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ktquez/laravel-tinymce/zipball/dbe1d70d3e4d6f22f02b84436ef51f8bdc9d7092",
+                "reference": "dbe1d70d3e4d6f22f02b84436ef51f8bdc9d7092",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ktquez\\Tinymce\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alan Albuquerque: ktquez",
+                    "email": "ktquez@gmail.com"
+                }
+            ],
+            "description": "TinyMCE editor for Laravel and Lumen Framework",
+            "homepage": "https://github.com/ktquez/laravel-tinymce",
+            "keywords": [
+                "CKEditor",
+                "editor",
+                "laravel",
+                "lumen",
+                "textarea",
+                "tinymce",
+                "wysiwyg"
+            ],
+            "time": "2016-06-11 22:51:19"
         },
         {
             "name": "laravel/framework",
@@ -3892,17 +3935,74 @@
     ],
     "packages-dev": [
         {
-            "name": "create-sites/imvk",
-            "version": "0.2",
+            "name": "backpack/generators",
+            "version": "1.1.7",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Create-Sites/IMVK.git",
-                "reference": "a1c7fc6fd440c7684eaab13418e99c053557d12a"
+                "url": "https://github.com/Laravel-Backpack/Generators.git",
+                "reference": "1df0fa0bd23e8cccc1e5906f1b603f6f4e3ef3e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Create-Sites/IMVK/zipball/a1c7fc6fd440c7684eaab13418e99c053557d12a",
-                "reference": "a1c7fc6fd440c7684eaab13418e99c053557d12a",
+                "url": "https://api.github.com/repos/Laravel-Backpack/Generators/zipball/1df0fa0bd23e8cccc1e5906f1b603f6f4e3ef3e5",
+                "reference": "1df0fa0bd23e8cccc1e5906f1b603f6f4e3ef3e5",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": ">=5.1",
+                "illuminate/support": ">=5.1",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*",
+                "scrutinizer/ocular": "~1.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Backpack\\Generators\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cristian Tone",
+                    "email": "cristitone@outlook.com",
+                    "homepage": "http://updivision.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Generate files for laravel projects",
+            "homepage": "https://github.com/laravel-backpack/generators",
+            "keywords": [
+                "config",
+                "generators",
+                "model",
+                "request",
+                "view"
+            ],
+            "time": "2016-12-21 10:06:14"
+        },
+        {
+            "name": "create-sites/imvk",
+            "version": "0.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Create-Sites/IMVK.git",
+                "reference": "fb77e06454d1fe8e40836b1ce5191fd551d5365a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Create-Sites/IMVK/zipball/fb77e06454d1fe8e40836b1ce5191fd551d5365a",
+                "reference": "fb77e06454d1fe8e40836b1ce5191fd551d5365a",
                 "shasum": ""
             },
             "require": {
@@ -3926,7 +4026,7 @@
                 }
             ],
             "description": "Real-time VK Messages for laravel 5 package",
-            "time": "2017-02-19 12:50:59"
+            "time": "2017-02-20 10:44:15"
         },
         {
             "name": "doctrine/instantiator",

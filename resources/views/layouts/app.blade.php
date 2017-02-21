@@ -25,6 +25,7 @@
 </head>
 <body>
 <div id="app">
+
     <nav>
         <div class="nav-wrapper">
             <div class="container">
@@ -42,14 +43,14 @@
                             @endif
                         </a>
                     </li>
-
                     <!-- Dropdown Structure -->
                     <ul id='dropdown2' class='dropdown-content'>
-                        {{--@foreach(\Backpack\LangFileManager\app\Models\Language::getActiveLanguages() as $lang)--}}
-                            {{--<li class="{{ session('locale') == $lang->abbr ? 'active' : '' }}">--}}
-                                {{--<a href="/language?lang={{ $lang->abbr }}" >{{ $lang->abbr }}</a>--}}
-                            {{--</li>--}}
-                        {{--@endforeach--}}
+                        @foreach(\Backpack\LangFileManager\app\Models\Language::getActiveLanguagesArray() as $lang)
+                        {{--@foreach(\Backpack\LangFileManager\app\Models\Language::all() as $lang)--}}
+                            <li >
+{{--                                <a href="/language?lang={{ $lang->abbr }}" >{{ $lang->abbr }}</a>--}}
+                            </li>
+                        @endforeach
                     </ul>
 
                     @if (Auth::guest())
@@ -87,7 +88,7 @@
                         <li>
                             <a class="dropdown-button" href="#" data-activates="dropdown1">
                                 {{--<img src="https://placeholdit.imgix.net/~text?txtsize=100&w=160&h=160&bg=00a65a&txtclr=ffffff&txtalign=middle,center&txt={{ Auth::user()->name[0] }}" class="responsive-img circle" alt="User Image" style="width: 35px; position: relative; top: 12px;">--}}
-                                {{--<img src="/uploads/avatars/{{ Auth::user()->image }}" class="responsive-img circle" style="width: 35px; position: relative; top: 12px;">--}}
+                                <img src="/uploads/avatars/{{ Auth::user()->image }}" class="responsive-img circle" style="width: 35px; position: relative; top: 12px;">
                                 <span>{{ Auth::user()->name }}</span>
                                 <i class="material-icons right">arrow_drop_down</i>
                             </a>
@@ -103,21 +104,21 @@
                             </li>
                             <li class="divider"></li>
                             @endrole
-                            {{--<li>--}}
-                                {{--<a href="{{ route('dashboard') }}">--}}
-                                    {{--Dashboard--}}
-                                {{--</a>--}}
-                            {{--</li>--}}
-                            {{--<li>--}}
-                                {{--<a href="{{ route('user.show', Auth::user()->id) }}">--}}
-                                    {{--Profile--}}
-                                {{--</a>--}}
-                            {{--</li>--}}
-                            {{--<li>--}}
-                                {{--<a href="{{ route('messages.all') }}">--}}
-                                    {{--Messages--}}
-                                {{--</a>--}}
-                            {{--</li>--}}
+                            <li>
+                                <a href="{{ route('dashboard') }}">
+                                    Dashboard
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('user.show', Auth::user()->id) }}">
+                                    Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('messages.all') }}">
+                                    Messages
+                                </a>
+                            </li>
                             <li class="divider"></li>
                             <li>
                                 <a href="{{ route('logout') }}"
@@ -130,6 +131,16 @@
                                 </form>
                             </li>
                         </ul>
+                        {{--<li>--}}
+                            {{--<a href="{{ route('logout') }}"--}}
+                               {{--onclick="event.preventDefault();--}}
+                                       {{--document.getElementById('logout-form').submit();">--}}
+                                {{--Logout--}}
+                            {{--</a>--}}
+                            {{--<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
+                                {{--{{ csrf_field() }}--}}
+                            {{--</form>--}}
+                        {{--</li>--}}
                     @endif
 
                 </ul>
@@ -137,15 +148,15 @@
                     <li class="navitem {{ (route('home') == Request::url())?' active':'' }}">
                         <a href="{{ route('home') }}">@lang('app.menu_home')</a>
                     </li>
-                    {{--<li class="navitem {{ (route('projects') == Request::url())?' active':'' }}">--}}
-                        {{--<a href="{{ route('projects') }}">@lang('app.menu_projects')</a>--}}
-                    {{--</li>--}}
-                    {{--<li class="navitem {{ (route('user.freelancers') == Request::url())?' active':'' }}">--}}
-                        {{--<a href="{{ route('user.freelancers') }}">@lang('app.menu_freelancers')</a>--}}
-                    {{--</li>--}}
-                    {{--<li class="navitem {{ (route('shop') == Request::url())?' active':'' }}">--}}
-                        {{--<a href="{{ route('shop') }}">@lang('app.menu_shop')</a>--}}
-                    {{--</li>--}}
+                    <li class="navitem {{ (route('projects') == Request::url())?' active':'' }}">
+                        <a href="{{ route('projects') }}">@lang('app.menu_projects')</a>
+                    </li>
+                    <li class="navitem {{ (route('user.freelancers') == Request::url())?' active':'' }}">
+                        <a href="{{ route('user.freelancers') }}">@lang('app.menu_freelancers')</a>
+                    </li>
+                    <li class="navitem {{ (route('shop') == Request::url())?' active':'' }}">
+                        <a href="{{ route('shop') }}">@lang('app.menu_shop')</a>
+                    </li>
                     @if(Auth::user())
                         @if(Auth::user()->hasRole('Freelancer'))
                             <li class="navitem ">
