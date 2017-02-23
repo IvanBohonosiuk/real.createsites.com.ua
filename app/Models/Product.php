@@ -5,10 +5,11 @@ namespace App\Models;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
+use Illuminate\Notifications\Notifiable;
 
 class Product extends Model
 {
-    use CrudTrait;
+    use CrudTrait, Notifiable;
 
     /*
    |--------------------------------------------------------------------------
@@ -35,7 +36,11 @@ class Product extends Model
         'colored'
     ];
     // protected $hidden = [];
-    // protected $dates = [];
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
 
     /*
     |--------------------------------------------------------------------------
@@ -61,6 +66,15 @@ class Product extends Model
     {
         return $this->id($id)
             ->firstOrFail();
+    }
+
+    /**
+     * @return string
+     */
+    public function activateProduct()
+    {
+        $activatebtn = '<a href="'. route('products.activate', $this->id) .'" class="btn btn-xs btn-success" data-button-type="activate"><i class="fa fa-check"></i> Activate</a>';
+        return $activatebtn;
     }
 
     /*

@@ -46,9 +46,8 @@
                     <!-- Dropdown Structure -->
                     <ul id='dropdown2' class='dropdown-content'>
                         @foreach(\Backpack\LangFileManager\app\Models\Language::getActiveLanguagesArray() as $lang)
-                        {{--@foreach(\Backpack\LangFileManager\app\Models\Language::all() as $lang)--}}
                             <li >
-{{--                                <a href="/language?lang={{ $lang->abbr }}" >{{ $lang->abbr }}</a>--}}
+                                <a href="/language?lang={{ $lang['abbr'] }}" >{{ $lang['abbr'] }}</a>
                             </li>
                         @endforeach
                     </ul>

@@ -36,37 +36,35 @@
                     @include('partials.error-messages')
                 </div>
                 @if (Auth::user())
-                    @if (Auth::user()->hasRole('Freelancer') )
-                        @if($project->freelancer_id == 0)
-                            <div class="form-bid">
-                                <form role='form' action="{{ route('bid.create') }}" method="post">
-                                    <div class="input-field col s12 m6 l6">
-                                        <label for="price">Стоимость</label>
-                                        <input type="text" name="price" id="price" required="required">
-                                    </div>
-                                    <div class="input-field col s12 m6 l6">
-                                        <label for="termin">Срок выполнения</label>
-                                        <input type="text" name="termin" id="termin" required="required">
-                                    </div>
-                                    <div class="input-field col m12">
-                                        <label for="description">Комментарий</label>
-                                        <textarea name="description" id="description" rows="5" class="materialize-textarea" required="required"></textarea>
-                                    </div>
-                                    <div class="col m12">
-                                        <p>
-                                            <input type="checkbox" name="private" id="private" value="1">
-                                            <label for="private">Скрыть заявку от других?</label>
-                                        </p>
-                                    </div>
-                                    <input type="hidden" name="project_id" value="{{ $project->id }}">
-                                    <input type="hidden" name="_token" value="{{ Session::token() }}">
-                                    <button class="btn green" type="submit">Добавить</button>
-                                </form>
-                            </div>
-                        @endif
+                    @if (Auth::user()->hasRole('Freelancer') && $project->freelancer_id == 0)
+                        <div class="form-bid">
+                            <form role='form' action="{{ route('bid.create') }}" method="post">
+                                <div class="input-field col s12 m6 l6">
+                                    <label for="price">Стоимость</label>
+                                    <input type="text" name="price" id="price" required="required">
+                                </div>
+                                <div class="input-field col s12 m6 l6">
+                                    <label for="termin">Срок выполнения</label>
+                                    <input type="text" name="termin" id="termin" required="required">
+                                </div>
+                                <div class="input-field col m12">
+                                    <label for="description">Комментарий</label>
+                                    <textarea name="description" id="description" rows="5" class="materialize-textarea" required="required"></textarea>
+                                </div>
+                                <div class="col m12">
+                                    <p>
+                                        <input type="checkbox" name="private" id="private" value="1">
+                                        <label for="private">Скрыть заявку от других?</label>
+                                    </p>
+                                </div>
+                                <input type="hidden" name="project_id" value="{{ $project->id }}">
+                                <input type="hidden" name="_token" value="{{ Session::token() }}">
+                                <button class="btn green" type="submit">Добавить</button>
+                            </form>
+                        </div>
                     @endif
                 @endif
-                @foreach ($bids as $bid)
+                @forelse ($bids as $bid)
                     @if ($bid->private == 0 || Auth::user()->id == $project->user->id || Auth::user()->id == $bid->user->id)
                         <div class="bid" >
                             <a href="{{ route('user.show', $bid->user->id) }}"><img src="/uploads/avatars/{{ $bid->user->image }}" class="avatar bid_avatar"></a>
@@ -143,8 +141,7 @@
                             </div>
                         </div>
                     @endif
-                @endforeach
-                @if(count($bids) == 0)
+                @empty
                     <div class="bid" >
                         <div class="private_bid">
                                 <span style="line-height: 75px; ">
@@ -152,7 +149,7 @@
                                 </span>
                         </div>
                     </div>
-                @endif
+                @endforelse
             </div>
         </div>
         <div class="col s12 m3 l3">

@@ -57,8 +57,8 @@
 
     @section('scripts')
         <script type="text/javascript">
-            jQuery(document).ready(function($) {
-                $('.input-field select').material_select();
+            $(document).ready(function() {
+                $('select').material_select();
             });
         </script>
     @stop

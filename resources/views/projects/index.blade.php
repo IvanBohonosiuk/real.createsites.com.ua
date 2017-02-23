@@ -19,7 +19,7 @@
                     <a href="{{ route('project.create') }}" class="right btn waves-effect prj_create_proect blue"><i class="material-icons">add</i> <span>@lang('project.add')</span></a>
                 @endif
             @endif
-            @foreach ($projects as $project)
+            @forelse ($projects as $project)
                 <div class="prj card-panel hoverable">
                     <a href="{{ route('projects.show', ['id' => $project->id]) }}" class="title">{{ $project->title }}</a>
                     <p class="price right">${{ $project->price }}</p>
@@ -36,7 +36,11 @@
                         <div class="right"> Ставок {{ count($project->bids) }}</div>
                     </div>
                 </div>
-            @endforeach
+            @empty
+                <div class="prj card-panel">
+                    <p class="price">Нічого не знайдено</p>
+                </div>
+            @endforelse
             {{--{!! $projects->links() !!}--}}
 {{--            {{ dd($projects) }}--}}
         </div>
