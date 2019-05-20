@@ -23,12 +23,12 @@
                 <form method="POST" class="col m10">
                     <textarea v-model="message_text"
                               rows="5"
-                              v-on:keydown="handleCmdEnter($event)"
+                              @keydown="handleCmdEnter($event)"
                               name="text"> </textarea>
-                    <button class="blue submit" @click="sendMessage" v-if="message_text.length">
-                        Send
-                        <small>[Enter]</small>
+                    <button class="btn blue white-text submit waves-effect waves-light" @click="sendMessage" v-if="message_text.length">
+                        <i class="mdi mdi-send right"></i> Send
                     </button>
+                    <br><small v-if="message_text.length">[Enter]</small>
                 </form>
                 <a :href="'/user/' + for_user.id" target="_blank"><img :src="'/uploads/avatars/' + for_user.image" alt="" class="circle responsive-img right col m1"></a>
                 <div class="clearfix"></div>
@@ -77,12 +77,7 @@
             handleCmdEnter (event) {
                 if (event.keyCode == 13) {
                     this.sendMessage(event);
-                } else if ((event.metaKey || event.ctrlKey) && event.keyCode == 13) {
-                    this.newLine();
                 }
-            },
-            newLine() {
-                this.message_text += '<br />';
             },
             sendMessage (event) {
                 event.preventDefault()

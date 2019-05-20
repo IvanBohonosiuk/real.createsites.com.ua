@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\NotifyAboutProject;
 use App\Models\ProjectCats;
 use Illuminate\Http\Request;
 use App\Models\Projects;
-
+use App\User;
 
 class ProjectsController extends Controller
 {
@@ -91,15 +92,35 @@ class ProjectsController extends Controller
             $project->categories()->attach($cat_id);
         endforeach;
 
+        // send notification on pusher.com
+        $pusher = new \Pusher(
+            env('PUSHER_KEY'),
+            env('PUSHER_SECRET'),
+            env('PUSHER_APP_ID'),
+            [
+                'cluster' => env('PUSHER_CLUSTER')
+            ]
+        );
+
+        //set message data
+        $data = [
+            'icon' => 'list',
+            'color_icon' => 'green-text',
+            'link' => '/project/' . $project->id,
+            'project' => $project,
+            'author' => $project->user,
+        ];
+
         // find all users
-//        $users = User::all();
-//
-//        foreach ($users as $user) :
-//            if ($user->hasRole('admin')) :
-//                // send notification to all admins
-//                $user->notify(new NotifyAdminsAboutNewProject($project));
-//            endif;
-//        endforeach;
+        $users = User::all();
+
+        foreach ($users as $user) :
+            if ($user->admin()) :
+                // send notification to all admins
+                $user->notify(new NotifyAboutProject('/project/' . $project->id, $project, $project->user));
+                $pusher->trigger( ['user_id'.$user->id], 'NotifyAboutProject', $data);
+            endif;
+        endforeach;
 
         return redirect()->back()->with(['message' => $message]);
     }
@@ -195,29 +216,37 @@ class ProjectsController extends Controller
         $act_project->save();
 
         // send notification on pusher.com
-        // $pusher = new \Pusher(
-        //     config('broadcasting.connections.pusher.key'),
-        //     config('broadcasting.connections.pusher.secret'),
-        //     config('broadcasting.connections.pusher.app_id'),
-        //     config('broadcasting.connections.pusher.options')
-        // );
-        // set project data
-        // $data = ['project' => $act_project, 'user' => $act_project->user];
-        // $pusher->trigger( 'project', 'NewProject', $data);
+        $pusher = new \Pusher(
+            env('PUSHER_KEY'),
+            env('PUSHER_SECRET'),
+            env('PUSHER_APP_ID'),
+            [
+                'cluster' => env('PUSHER_CLUSTER')
+            ]
+        );
 
-
-        // send event to project author
-//        event(new NewProject($act_project, $act_project->user));
+        //set message data
+        $data = [
+            'icon' => 'list',
+            'color_icon' => 'green-text',
+            'link' => '/project/' . $act_project->id,
+            'project' => $act_project,
+            'author' => $act_project->user,
+        ];
+        $pusher->trigger( ['user_id'.$act_project->user->id], 'NotifyAboutProject', $data);
+        $act_project->user->notify(new NotifyAboutProject('/project/' . $act_project->id, $act_project, $act_project->user));
 
         // find all users
-//        $users = User::all();
-//
-//        foreach ($users as $user) :
-//            if ($user->hasRole('Freelancer')) :
-//                // send notification to all freelancers
-//                $user->notify(new AddProjects($act_project, $act_project->user));
-//            endif;
-//        endforeach;
+        $users = User::all();
+
+        foreach ($users as $user) :
+            if ($user->freelancer()) :
+                // send notification to all freelancers
+                $user->notify(new NotifyAboutProject('/project/' . $act_project->id, $act_project, $act_project->user));
+                // send notification to all freelancers on pusher.com
+                $pusher->trigger( ['user_id'.$user->id], 'NotifyAboutProject', $data);
+            endif;
+        endforeach;
 
         return redirect()->back();
     }

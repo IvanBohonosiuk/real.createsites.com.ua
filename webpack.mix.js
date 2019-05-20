@@ -11,19 +11,22 @@ const { mix } = require('laravel-mix');
  |
  */
 
-// mix.js('resources/assets/js/app.js', 'public/js')
-//    .sass('resources/assets/sass/app.scss', 'public/css');
+mix.js('resources/assets/js/app.js', 'public/js')
+    .sass('resources/assets/sass/app.scss', 'public/css');
+    // .copy('node_modules/mdi/fonts', 'public/fonts')
+    // .copy('node_modules/materialize-css/fonts', 'public/fonts');
 
 
-mix
-    .js('resources/assets/js/app.js', 'public/js')
-    .sass('resources/assets/sass/app.scss', 'public/css')
+
+// mix
+//     .js('resources/assets/js/app.js', 'public/js')
+//     .sass('resources/assets/sass/app.scss', 'public/css')
 
     // .copy('node_modules/materialize-css/fonts', 'public/build/fonts')
 
-    .sourceMaps();
-
 
 if (mix.config.inProduction) {
-    mix.version();
+    mix
+        .version()
+        .sourceMaps();
 }

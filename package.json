@@ -17,6 +17,7 @@
   "dependencies": {
     "hammerjs": "^2.0.8",
     "materialize-css": "^0.98.0",
+    "mdi": "^1.8.36",
     "vue-async-data": "^1.0.2",
     "vue-resource": "^1.2.0"
   }

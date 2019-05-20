@@ -21,7 +21,7 @@
             @endif
             <div class="row">
                 @forelse ($products as $product)
-                    <div class="col s3 prj card-panel hoverable">
+                    <div class="col l4 m4 s12 prj card-panel hoverable">
                         <div class="product_img">
                             <img src="/uploads/products/{{ $product->img }}" width="100%" />
                         </div>

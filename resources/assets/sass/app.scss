@@ -11,7 +11,11 @@
 // Reset
 @import "node_modules/materialize-css/sass/components/normalize";
 
+// Icons
+@import "node_modules/mdi/scss/materialdesignicons";
+
 // components
+@import "node_modules/materialize-css/sass/components/badges";
 @import "node_modules/materialize-css/sass/components/global";
 @import "node_modules/materialize-css/sass/components/icons-material-design";
 @import "node_modules/materialize-css/sass/components/grid";
@@ -42,7 +46,17 @@
 @import "variables";
 
 body {
-  font-family: 'Roboto', 'Times New Roman', Arial, sans-serif;
+  font-family: Arial, 'Times New Roman', sans-serif;
+}
+
+#app {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 nav {
@@ -67,7 +81,7 @@ h3 {
     min-width: 22px;
     position: absolute;
     top: 15px;
-    margin-left: 10px;
+    margin-left: -15px;
   }
 }
 

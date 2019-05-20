@@ -120,4 +120,19 @@ class User extends Authenticatable
     {
         return 'activity.user';
     }
+
+    public function freelancer()
+    {
+        return $this->hasRole('Freelancer');
+    }
+
+    public function customer()
+    {
+        return $this->hasRole('Customer');
+    }
+
+    public function admin()
+    {
+        return $this->hasRole('admin');
+    }
 }
